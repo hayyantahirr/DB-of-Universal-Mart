@@ -7,7 +7,6 @@ router.get("/", async (req, res) => {
   res.send({ data });
 });
 router.post("/addProduct", async (req, res) => {
- 
   const body = req.body;
   await Products.create(body);
   res.send("post request successful");
