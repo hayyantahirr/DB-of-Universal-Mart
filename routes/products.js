@@ -1,11 +1,16 @@
-import express from 'express'
-const router = express.Router()
+import express from "express";
+import Products from "../model/Products.js";
+const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('get request successful')
-})
-router.post('/addProduct', (req, res) => {
-    res.send('post request successful')
-})
+router.get("/", async (req, res) => {
+  const data = await Products.find();
+  res.send({ data });
+});
+router.post("/addProduct", async (req, res) => {
+ 
+  const body = req.body;
+  await Products.create(body);
+  res.send("post request successful");
+});
 
-export default router   
+export default router;
