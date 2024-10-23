@@ -7,8 +7,8 @@ router.get("/", async (req, res) => {
   res.send({ data });
 });
 router.post("/addProduct", async (req, res) => {
-  const body = req.body;
-  await Products.create(body);
+  const data = req.body;
+  await Products.create(data);
   res.send("post request successful");
 });
 
